@@ -9,7 +9,6 @@ import {
   SpanStyle,
   SpanStyleBold,
 } from "./Home.Elements";
-import Header from "../../components/Header/Header";
 import Runas from "../../assets/runas.png";
 import Button from "../../components/Button/Button";
 
@@ -17,8 +16,6 @@ const Home = () => {
   return (
     <HomeContainer>
       <HomeContent>
-        <Header />
-
         <HomeMain>
           <HomeImg src={Runas} />
           <HomeText>

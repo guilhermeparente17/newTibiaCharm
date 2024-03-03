@@ -16,9 +16,13 @@ const GlobalStyle = createGlobalStyle`
     background-attachment: fixed;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   body::before {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

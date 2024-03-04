@@ -1,9 +1,12 @@
 import React from 'react'
 import { CardContainer, CardImage, CardSpan, CardStatus, CardTitle } from './Card.Elements'
+import { useStore } from '../../zustand/store'
 
 const Card = ({creature}) => {
+  const {setAddCreatureCreatedRune} = useStore();
+
   return (
-    <CardContainer>
+    <CardContainer onClick={() => setAddCreatureCreatedRune(creature)}>
       <CardImage src={creature.image_url} />
 
       <CardTitle>{creature.name}</CardTitle>

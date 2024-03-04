@@ -1,9 +1,9 @@
 import React from 'react'
 import { ButtonContainer } from './Button.Elements'
 
-const Button = ({children}) => {
+const Button = ({children, onClick}) => {
   return (
-    <ButtonContainer>{children}</ButtonContainer>
+    <ButtonContainer onClick={onClick}>{children}</ButtonContainer>
   )
 }
 

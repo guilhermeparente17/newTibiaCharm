@@ -17,3 +17,10 @@ export const CreaturesList = styled.div`
     overflow: auto;
     padding-bottom: 40px;
 `;
+
+export const HeaderCreatures = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;

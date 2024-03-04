@@ -10,7 +10,6 @@ export const PageRoutesContainer = styled.div`
 export const PageRoutesContent = styled.div`
   width: 1200px;
   height: fit-content;
-  overflow-y: auto;
   background-color: #181a2c;
   position: block;
   z-index: 999;

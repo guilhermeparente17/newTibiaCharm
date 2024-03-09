@@ -10,5 +10,5 @@ export const BannerContainer = styled.div`
     color: #fff;
     font-size: 25px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 `;

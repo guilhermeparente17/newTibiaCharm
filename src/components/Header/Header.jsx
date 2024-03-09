@@ -25,7 +25,9 @@ const Header = () => {
         <Link to="/runic-plan">
           <HeaderItem>Plano Rúnico</HeaderItem>
         </Link>
-        <HeaderItem>Meu Plano Rúnico</HeaderItem>
+        <Link to="/my-runes">
+          <HeaderItem>Meu Plano Rúnico</HeaderItem>
+        </Link>
       </HeaderMenu>
     </HeaderContainer>
   );

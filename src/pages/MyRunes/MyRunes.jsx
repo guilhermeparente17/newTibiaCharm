@@ -8,6 +8,8 @@ import {
   MRRunes,
   MRStatistics,
   MRTitle,
+  Title,
+  WrapData,
   MyRunesContainer,
   RuneAccordion,
   RuneAccordionImg,
@@ -15,15 +17,26 @@ import {
   Runes,
   Wrap,
   PointsTotal,
+  MRList,
+  MRItem,
+  IconClose,
 } from "./MyRunes.Elements";
 import { useStore } from "../../zustand/store";
 import { IoIosArrowDown } from "react-icons/io";
+import { IoClose } from "react-icons/io5";
 
 const MyRunes = () => {
-  const { myRunes } = useStore();
+  const { 
+    myRunes, 
+    setAddPointsInRune, 
+    setStatusCreature, 
+    totalCharmPoints, 
+    setRemoveCreatureMyRunes, 
+    setRemoveRune 
+  } = useStore();
   const [charmPoints, setCharmPoints] = useState(0);
   const [openStates, setOpenStates] = useState(
-    Array(myRunes.length).fill(false)
+    Array(myRunes?.length).fill(false)
   );
 
   const toggleAccordion = (index) => {
@@ -37,8 +50,19 @@ const MyRunes = () => {
       <MRTitle>Seu plano rúnico</MRTitle>
 
       <MRStatistics>
-        <MRData>Dados</MRData>
-        <MRRunes>Suas runas</MRRunes>
+        <WrapData>
+          <Title>Meus Dados</Title>
+          <MRData>
+            <MRList>
+              <MRItem>Total de pontos: {totalCharmPoints}</MRItem>
+            </MRList>
+          </MRData>
+        </WrapData>
+
+        <WrapData>
+          <Title>Minhas Runas</Title>
+          <MRRunes>Suas runas</MRRunes>
+        </WrapData>
       </MRStatistics>
 
       <Runes>
@@ -52,13 +76,18 @@ const MyRunes = () => {
                   <RuneAccordionName>{runa?.name}</RuneAccordionName>
                 </Wrap>
                 <Wrap>
-                  <PointsTotal>{charmPoints}/800</PointsTotal>
+                  <PointsTotal>{runa?.points}/{runa?.totalPoints}</PointsTotal>
                   <IoIosArrowDown
                     onClick={() => toggleAccordion(index)}
                     size={25}
                     color="#fff"
                     style={{ marginRight: "10px", cursor: "pointer" }}
                   />
+                  <IconClose position='relative' onClick={() => {
+                    setRemoveRune(runa);
+                  }}>
+                    <IoClose size="25" color="red" />
+                  </IconClose>
                 </Wrap>
               </RuneAccordion>
 
@@ -69,7 +98,15 @@ const MyRunes = () => {
                       <CardCreature key={index}>
                         <CreatureImg src={creature?.image_url} />
                         <CreatureName>{creature?.name}</CreatureName>
-                        <button onClick={() => setCharmPoints(charmPoints + creature.charmPoints)}>Concluído</button>
+                        <button disabled={creature.status === 'completed' ? true : false} onClick={() => {
+                          setAddPointsInRune({ name: runa?.name, value: creature.charmPoints });
+                          setCharmPoints(charmPoints + creature.charmPoints);
+                          setStatusCreature(creature?.name)
+                        }}>Concluído</button>
+
+                        <IconClose position='absolute' onClick={() => setRemoveCreatureMyRunes({ creature: creature, runa: runa })}>
+                          <IoClose size="25" color="red" />
+                        </IconClose>
                       </CardCreature>
                     );
                   })}

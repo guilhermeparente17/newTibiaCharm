@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const CardContainer = styled.div`
     width: 210px;
     height: fit-content;
-    background-color: #2D3053;
+    background-color: ${props => props.existCreature ? '#A60452' : '#2D3053'};
     border: 3px solid #A60452;
     border-radius: 40px;
 
@@ -11,12 +11,12 @@ export const CardContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    transition: 0.2s ease-in-out;
+    transition: 0.3s ease-in-out;
 
     cursor: pointer;
     &:hover {
-        transition: 0.2s ease-in-out;
-        background-color: #1C1D30;
+        transition: 0.3s ease-in-out;
+        background-color: ${props => props.existCreature ? '#A60452' : '#1C1D30'};
     }
 `;
 

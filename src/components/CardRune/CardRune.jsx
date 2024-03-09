@@ -8,7 +8,7 @@ const CardRune = ({ runa }) => {
 
   return (
     <RunaContainer onClick={() => {
-      setAddNameCreatedRune(runa.name);
+      setAddNameCreatedRune({name: runa.name, totalPoints: runa?.totalPoints});
       setTab(2);
     }}>
       <RunaImg src={runeImage} />

@@ -28,21 +28,18 @@ export const MRStatistics = styled.div`
 
 export const MRData = styled.div`
     width: 500px;
-    height: fit-content;
+    height: 200px;
     background-color: #2D3053;
     border-radius: 6px;
     border: 3px solid #A60452;
-    padding: 15px;
-    margin-left: 20px;
 `;
 
 export const MRRunes = styled.div`
     width: 500px;
-    height: fit-content;
+    height: 200px;
     background-color: #2D3053;
     border-radius: 6px;
     border: 3px solid #A60452;
-    padding: 15px;
     margin-right: 20px;
 `;
 export const Runes = styled.div`
@@ -111,6 +108,7 @@ export const CardCreature = styled.div`
     align-items: center;
     text-align: center;
     flex-direction: column;
+    position: relative;
 `;
 
 export const CreatureImg = styled.img`
@@ -128,3 +126,34 @@ export const PointsTotal = styled.span`
     color: #fff;
 `;
 
+export const WrapData = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 20px;
+`;
+export const Title = styled.h3`
+    color: #fff;
+    font-weight: bold;
+`;
+export const MRList = styled.ul`
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+`;
+export const MRItem = styled.li`
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 15px;
+`;
+
+export const IconClose = styled.div`
+    position: ${props => props.position ? props.position : 'block'}; 
+    top: 0;
+    right: 0;
+    cursor: pointer;
+`;

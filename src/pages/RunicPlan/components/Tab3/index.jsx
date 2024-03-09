@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 
 const Tab3 = () => {
   const {myRunes} = useStore();
-  console.log(myRunes);
   return (
     <Tab2Container>
       <Banner>Plano rúnico criado com sucesso!</Banner>

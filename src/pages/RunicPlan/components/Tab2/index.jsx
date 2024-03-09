@@ -7,8 +7,6 @@ import Creatures from '../../../Creatures/Creatures';
 const Tab2 = () => {
   const {tab, createdRune} = useStore();
 
-  console.log(createdRune, tab)
-
   return (
     <Tab2Container>
       <Banner>Quais criaturas deseja enfrentar para conseguir a runa ? </Banner>

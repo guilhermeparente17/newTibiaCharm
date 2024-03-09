@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useStore } from "../../zustand/store";
 
 const RunicPlan = () => {
-  const { setTab } = useStore();
+  const { setTab, setResetCreatedPlan } = useStore();
   return (
     <RunicContainer>
       <RunicBanner>
@@ -28,6 +28,7 @@ const RunicPlan = () => {
       </RunicBanner>
 
       <Link onClick={() => {
+        setResetCreatedPlan()
         setTab(1)
       }} to="/runic-plan-register">
         <Button>Comece agora</Button>
